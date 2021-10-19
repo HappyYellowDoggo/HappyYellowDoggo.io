@@ -23,7 +23,7 @@ elem[18] = document.getElementById("18");
 elem[19] = document.getElementById("totals");
 
 // add up all par 4's
-elem[19].children[1].innerHTML = 72;
+elem[19].children[1].innerHTML = (18*4);
 
 // display the number of children (all td elements)
 // console.log(elem.children.length);
