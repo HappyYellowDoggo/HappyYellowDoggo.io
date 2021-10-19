@@ -100,7 +100,7 @@ elem[17].children[4].children[1].onclick
 elem[18].children[4].children[1].onclick 
   = function(){sub1(elem[18]);};
 
-// assign a function to the C button
+// assign a function to the C (clear) button
 elem[1].children[4].children[2].onclick 
   = function(){c1(elem[1]);};
 elem[2].children[4].children[2].onclick 
@@ -138,8 +138,9 @@ elem[17].children[4].children[2].onclick
 elem[18].children[4].children[2].onclick 
   = function(){c1(elem[18]);};
 
-// assign fuction to over buttons
+//assign function to clear the whole score card
 
+elem[20].onclick = function() {clearAll()};
 
 // creating an "add1" function
 function add1 (elem) {
