@@ -187,35 +187,3 @@ function c1 (elem) {
   elem.children[3].innerHTML = "-";
 }
 
-function updateTotal (elem) {
-  if !(elem.children[3].innerHTML == "-") {
-    let currentOver = elem.children[3].innerHTML;
-    currentOver = Number.parseInt(currentOver);
-  }
-  if !(elem.children[2].innerHTML == "-") {
-    let currentScore = elem.children[2].innerHTML;
-    currentScore = Number.parseInt(currentScore);
-  }
-  if !(elem.children[1].innerHTML == "-") {
-    let par = elem.children[1].innerHTML;
-    par = Number.parseInt(par);
-  }
-  
-  if (elem[19].children[1].innerHTML == "-") {
-    elem[19].children[1].innerHTML = par;
-  }
-  else 
-    elem[19].children[1].innerHTML += par;
-  
-  if (elem[19].children[2].innerHTML == "-") {
-    elem[19].children[2].innerHTML = currentScore;
-  }
-  else 
-    elem[19].children[2].innerHTML += currentScore;
-  
-  if (elem[19].children[3].innerHTML == "-") {
-    elem[19].children[3].innerHTML = currentOver;
-  }
-  else 
-    elem[19].children[3].innerHTML += currentOver;
-} 
