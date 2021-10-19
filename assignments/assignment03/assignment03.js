@@ -116,7 +116,6 @@ elem[74] = document.getElementById("c18")
 elem[75] = document.getElementById("c19")
 
 
-
 // display the number of children (all td elements)
 // console.log(elem.children.length);
 // display the content of the + button, which is the first child of the fifth element
