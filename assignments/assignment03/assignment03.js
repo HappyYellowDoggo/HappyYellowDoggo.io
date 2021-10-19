@@ -1,5 +1,3 @@
-//author:nathan foess Program: Assignment 03 JS Contact: Nlfoess@svsu.edu
-
 let elem = [];
 // assign the entire table row for hole 1 to a variable, elem
 
@@ -114,6 +112,7 @@ elem[72] = document.getElementById("c16")
 elem[73] = document.getElementById("c17")
 elem[74] = document.getElementById("c18")
 elem[75] = document.getElementById("c19")
+
 
 
 // display the number of children (all td elements)
@@ -314,34 +313,3 @@ function addOver (){
    
 Number(elem[1].children[3].innerHTML) +                             
 Number(elem[2].children[3].innerHTML)+
-Number(elem[3].children[3].innerHTML)+
-Number(elem[4].children[3].innerHTML)+
-Number(elem[5].children[3].innerHTML)+
-Number(elem[6].children[3].innerHTML)+
-Number(elem[7].children[3].innerHTML)+
-Number(elem[8].children[3].innerHTML)+
-Number(elem[9].children[3].innerHTML)+
-Number(elem[10].children[3].innerHTML)+
-Number(elem[11].children[3].innerHTML)+
-Number(elem[12].children[3].innerHTML)+
-Number(elem[13].children[3].innerHTML)+
-Number(elem[14].children[3].innerHTML)+
-Number(elem[15].children[3].innerHTML)+
-Number(elem[16].children[3].innerHTML)+
-Number(elem[17].children[3].innerHTML)+
-Number(elem[18].children[3].innerHTML);
-}
-
-function clear(elem){
-  elem.children[2].innerHTML = "-"
-  elem.children[3].innerHTML = "-"
-}
-
-function clearAll(){
-for(i =1; i < 19; i++){
-  elem[i].children[2].innerHTML = "-"
-  elem[i].children[3].innerHTML = "-"
-  elem[55].children[2].innerHTML = "-"
-  elem[55].children[3].innerHTML = "-"
-}
-}
