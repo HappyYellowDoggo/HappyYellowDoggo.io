@@ -140,7 +140,7 @@ elem[18].children[4].children[2].onclick
 
 //assign function to clear the whole score card
 
-elem[20].onclick = function() {clearAll()};
+elem[c19].onclick = function() {clearAll()};
 
 // creating an "add1" function
 function add1 (elem) {
