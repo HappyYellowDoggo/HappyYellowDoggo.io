@@ -138,13 +138,14 @@ elem[17].children[4].children[2].onclick
 elem[18].children[4].children[2].onclick 
   = function(){c1(elem[18]);};
 
-//assign function to clear the whole score card
-
-
-
+// create add function
+function add(){
+ addScore();
+  addOver();
+}
 
 //create totals
-function totals (){
+function addScore (){
   
     for(let i = 1; i < 19; i++){
     if(elem[i].children[2].innerHTML == "-"){
