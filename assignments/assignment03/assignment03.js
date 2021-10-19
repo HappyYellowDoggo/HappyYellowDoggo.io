@@ -1,5 +1,5 @@
 let elem = [];
-// assign the entire table row for hole 1 to a variable, elem
+
 elem[1] = document.getElementById("1");
 elem[2] = document.getElementById("2");
 elem[3] = document.getElementById("3");
@@ -19,52 +19,12 @@ elem[16] = document.getElementById("16");
 elem[17] = document.getElementById("17");
 elem[18] = document.getElementById("18");
 
-// give totals row an index
 elem[19] = document.getElementById("totals");
 
-// give scores button an index
-elem[20] = document.getElementById("finalScores")
+//assigning totals for par 4
+elem[19].children[1].innerHTML = 72;
 
-
-// assign an index to the C button
-elem[1].children[4].children[2].onclick 
-  = function(){c1(elem[1]);};
-elem[2].children[4].children[2].onclick 
-  = function(){c1(elem[2]);};
-elem[3].children[4].children[2].onclick 
-  = function(){c1(elem[3]);};
-elem[4].children[4].children[2].onclick 
-  = function(){c1(elem[4]);};
-elem[5].children[4].children[2].onclick 
-  = function(){c1(elem[5]);};
-elem[6].children[4].children[2].onclick 
-  = function(){c1(elem[6]);};
-elem[7].children[4].children[2].onclick 
-  = function(){c1(elem[7]);};
-elem[8].children[4].children[2].onclick 
-  = function(){c1(elem[8]);};
-elem[9].children[4].children[2].onclick 
-  = function(){c1(elem[9]);};
-elem[10].children[4].children[2].onclick 
-  = function(){c1(elem[10]);};
-elem[11].children[4].children[2].onclick 
-  = function(){c1(elem[11]);};
-elem[12].children[4].children[2].onclick 
-  = function(){c1(elem[12]);};
-elem[13].children[4].children[2].onclick 
-  = function(){c1(elem[13]);};
-elem[14].children[4].children[2].onclick 
-  = function(){c1(elem[14]);};
-elem[15].children[4].children[2].onclick 
-  = function(){c1(elem[15]);};
-elem[16].children[4].children[2].onclick 
-  = function(){c1(elem[16]);};
-elem[17].children[4].children[2].onclick 
-  = function(){c1(elem[17]);};
-elem[18].children[4].children[2].onclick 
-  = function(){c1(elem[18]);};
-
-// assign an index to the + button
+// assign a function to the + button
 elem[1].children[4].children[0].onclick 
   = function(){add1(elem[1]);};
 elem[2].children[4].children[0].onclick 
@@ -102,7 +62,7 @@ elem[17].children[4].children[0].onclick
 elem[18].children[4].children[0].onclick 
   = function(){add1(elem[18]);};
 
-//assign an index to the - button
+//assign a function to the - button
 elem[1].children[4].children[1].onclick 
   = function(){sub1(elem[1]);};
 elem[2].children[4].children[1].onclick 
@@ -140,12 +100,46 @@ elem[17].children[4].children[1].onclick
 elem[18].children[4].children[1].onclick 
   = function(){sub1(elem[18]);};
 
-//adding up all par 4's
+// assign a function to the C (clear) button
+elem[1].children[4].children[2].onclick 
+  = function(){c1(elem[1]);};
+elem[2].children[4].children[2].onclick 
+  = function(){c1(elem[2]);};
+elem[3].children[4].children[2].onclick 
+  = function(){c1(elem[3]);};
+elem[4].children[4].children[2].onclick 
+  = function(){c1(elem[4]);};
+elem[5].children[4].children[2].onclick 
+  = function(){c1(elem[5]);};
+elem[6].children[4].children[2].onclick 
+  = function(){c1(elem[6]);};
+elem[7].children[4].children[2].onclick 
+  = function(){c1(elem[7]);};
+elem[8].children[4].children[2].onclick 
+  = function(){c1(elem[8]);};
+elem[9].children[4].children[2].onclick 
+  = function(){c1(elem[9]);};
+elem[10].children[4].children[2].onclick 
+  = function(){c1(elem[10]);};
+elem[11].children[4].children[2].onclick 
+  = function(){c1(elem[11]);};
+elem[12].children[4].children[2].onclick 
+  = function(){c1(elem[12]);};
+elem[13].children[4].children[2].onclick 
+  = function(){c1(elem[13]);};
+elem[14].children[4].children[2].onclick 
+  = function(){c1(elem[14]);};
+elem[15].children[4].children[2].onclick 
+  = function(){c1(elem[15]);};
+elem[16].children[4].children[2].onclick 
+  = function(){c1(elem[16]);};
+elem[17].children[4].children[2].onclick 
+  = function(){c1(elem[17]);};
+elem[18].children[4].children[2].onclick 
+  = function(){c1(elem[18]);};
 
-elem[19].children[1].innerHTML = 72;
 
-
-// create an "add1" function
+// creating an "add1" function
 function add1 (elem) {
   if(elem.children[2].innerHTML == "-") 
     elem.children[2].innerHTML = "1";
@@ -165,7 +159,7 @@ function add1 (elem) {
   }
 }
 
-// create a "sub1" function
+// creating a "sub1" function
 function sub1 (elem) {
   if(elem.children[2].innerHTML == "1"||elem.children[2].innerHTML == "-") 
     elem.children[2].innerHTML = "-";
@@ -185,7 +179,9 @@ function sub1 (elem) {
   }
 }
 
+
 function c1 (elem) {
   elem.children[2].innerHTML = "-";
   elem.children[3].innerHTML = "-";
 }
+
