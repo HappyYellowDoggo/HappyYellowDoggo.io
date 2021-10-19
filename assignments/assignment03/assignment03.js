@@ -143,8 +143,8 @@ elem[18].children[4].children[2].onclick
 
 
 
-//create finalscore
-function finalscore (){
+//create totals
+function totals (){
   
     for(let i = 1; i < 19; i++){
     if(elem[i].children[2].innerHTML == "-"){
@@ -154,22 +154,22 @@ function finalscore (){
   elem[19].children[2].innerHTML = 
    
 Number(elem[1].children[2].innerHTML) +                             
-Number(elem[2].children[2].innerHTML)+
-Number(elem[3].children[2].innerHTML)+
-Number(elem[4].children[2].innerHTML)+
-Number(elem[5].children[2].innerHTML)+
-Number(elem[6].children[2].innerHTML)+
-Number(elem[7].children[2].innerHTML)+
-Number(elem[8].children[2].innerHTML)+
-Number(elem[9].children[2].innerHTML)+
-Number(elem[10].children[2].innerHTML)+
-Number(elem[11].children[2].innerHTML)+
-Number(elem[12].children[2].innerHTML)+
-Number(elem[13].children[2].innerHTML)+
-Number(elem[14].children[2].innerHTML)+
-Number(elem[15].children[2].innerHTML)+
-Number(elem[16].children[2].innerHTML)+
-Number(elem[17].children[2].innerHTML)+
+Number(elem[2].children[2].innerHTML) +
+Number(elem[3].children[2].innerHTML) +
+Number(elem[4].children[2].innerHTML) +
+Number(elem[5].children[2].innerHTML) +
+Number(elem[6].children[2].innerHTML) +
+Number(elem[7].children[2].innerHTML) +
+Number(elem[8].children[2].innerHTML) +
+Number(elem[9].children[2].innerHTML) +
+Number(elem[10].children[2].innerHTML) +
+Number(elem[11].children[2].innerHTML) +
+Number(elem[12].children[2].innerHTML) +
+Number(elem[13].children[2].innerHTML) +
+Number(elem[14].children[2].innerHTML) +
+Number(elem[15].children[2].innerHTML) +
+Number(elem[16].children[2].innerHTML) +
+Number(elem[17].children[2].innerHTML) +
 Number(elem[18].children[2].innerHTML);
 }
 
