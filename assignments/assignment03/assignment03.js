@@ -1,5 +1,6 @@
 let elem = [];
 
+// assign the entire table row for hole 1 to variable elem
 elem[1] = document.getElementById("1");
 elem[2] = document.getElementById("2");
 elem[3] = document.getElementById("3");
@@ -21,8 +22,11 @@ elem[18] = document.getElementById("18");
 
 elem[19] = document.getElementById("totals");
 
-//assigning totals for par 4
 elem[19].children[1].innerHTML = 72;
+// display the number of children (all td elements)
+// console.log(elem.children.length);
+// display the content of the + button, which is the first child of the fifth element
+// console.log(elem.children[4].children[0]); 
 
 // assign a function to the + button
 elem[1].children[4].children[0].onclick 
@@ -100,7 +104,7 @@ elem[17].children[4].children[1].onclick
 elem[18].children[4].children[1].onclick 
   = function(){sub1(elem[18]);};
 
-// assign a function to the C (clear) button
+// assign a function to the C button
 elem[1].children[4].children[2].onclick 
   = function(){c1(elem[1]);};
 elem[2].children[4].children[2].onclick 
@@ -138,44 +142,7 @@ elem[17].children[4].children[2].onclick
 elem[18].children[4].children[2].onclick 
   = function(){c1(elem[18]);};
 
-// create add function
-function add(){
- addScore();
-  addOver();
-}
-
-//create totals
-function addScore (){
-  
-    for(let i = 1; i < 19; i++){
-    if(elem[i].children[2].innerHTML == "-"){
-      elem[i].children[2].innerHTML = 0;
-    }
-  }
-  elem[19].children[2].innerHTML = 
-   
-Number(elem[1].children[2].innerHTML) +                             
-Number(elem[2].children[2].innerHTML) +
-Number(elem[3].children[2].innerHTML) +
-Number(elem[4].children[2].innerHTML) +
-Number(elem[5].children[2].innerHTML) +
-Number(elem[6].children[2].innerHTML) +
-Number(elem[7].children[2].innerHTML) +
-Number(elem[8].children[2].innerHTML) +
-Number(elem[9].children[2].innerHTML) +
-Number(elem[10].children[2].innerHTML) +
-Number(elem[11].children[2].innerHTML) +
-Number(elem[12].children[2].innerHTML) +
-Number(elem[13].children[2].innerHTML) +
-Number(elem[14].children[2].innerHTML) +
-Number(elem[15].children[2].innerHTML) +
-Number(elem[16].children[2].innerHTML) +
-Number(elem[17].children[2].innerHTML) +
-Number(elem[18].children[2].innerHTML);
-}
-
-
-// creating an "add1" function
+// create an "add1" function
 function add1 (elem) {
   if(elem.children[2].innerHTML == "-") 
     elem.children[2].innerHTML = "1";
@@ -195,7 +162,7 @@ function add1 (elem) {
   }
 }
 
-// creating a "sub1" function
+// create a "sub1" function
 function sub1 (elem) {
   if(elem.children[2].innerHTML == "1"||elem.children[2].innerHTML == "-") 
     elem.children[2].innerHTML = "-";
@@ -220,3 +187,35 @@ function c1 (elem) {
   elem.children[3].innerHTML = "-";
 }
 
+function updateTotal (elem) {
+  if !(elem.children[3].innerHTML == "-") {
+    let currentOver = elem.children[3].innerHTML;
+    currentOver = Number.parseInt(currentOver);
+  }
+  if !(elem.children[2].innerHTML == "-") {
+    let currentScore = elem.children[2].innerHTML;
+    currentScore = Number.parseInt(currentScore);
+  }
+  if !(elem.children[1].innerHTML == "-") {
+    let par = elem.children[1].innerHTML;
+    par = Number.parseInt(par);
+  }
+  
+  if (elem[19].children[1].innerHTML == "-") {
+    elem[19].children[1].innerHTML = par;
+  }
+  else 
+    elem[19].children[1].innerHTML += par;
+  
+  if (elem[19].children[2].innerHTML == "-") {
+    elem[19].children[2].innerHTML = currentScore;
+  }
+  else 
+    elem[19].children[2].innerHTML += currentScore;
+  
+  if (elem[19].children[3].innerHTML == "-") {
+    elem[19].children[3].innerHTML = currentOver;
+  }
+  else 
+    elem[19].children[3].innerHTML += currentOver;
+} 
