@@ -20,7 +20,7 @@ elem[17] = document.getElementById("17");
 elem[18] = document.getElementById("18");
 
 // giving totals row an index
-elem[19] = document.getElementById("finalScores");
+elem[19] = document.getElementById("totals");
 
 // add up all par 4's
 elem[19].children[1].innerHTML = 72;
