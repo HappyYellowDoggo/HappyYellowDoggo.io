@@ -23,14 +23,14 @@ elem[18] = document.getElementById("18");
 elem[19] = document.getElementById("totals");
 
 // add up all par 4's
-elem[19].children[1].innerHTML = (18*4);
+elem[19].children[1].innerHTML = 72;
 
 // display the number of children (all td elements)
 // console.log(elem.children.length);
 // display the content of the + button, which is the first child of the fifth element
 // console.log(elem.children[4].children[0]); 
 
-// assign a function to the + button
+// assigning a function to the + button
 elem[1].children[4].children[0].onclick 
   = function(){add1(elem[1]);};
 elem[2].children[4].children[0].onclick 
@@ -68,7 +68,7 @@ elem[17].children[4].children[0].onclick
 elem[18].children[4].children[0].onclick 
   = function(){add1(elem[18]);};
 
-//assign a function to the - button
+//assigning a function to the - button
 elem[1].children[4].children[1].onclick 
   = function(){sub1(elem[1]);};
 elem[2].children[4].children[1].onclick 
@@ -106,7 +106,7 @@ elem[17].children[4].children[1].onclick
 elem[18].children[4].children[1].onclick 
   = function(){sub1(elem[18]);};
 
-// assign a function to the C button
+// assigning a function to the C button
 elem[1].children[4].children[2].onclick 
   = function(){c1(elem[1]);};
 elem[2].children[4].children[2].onclick 
@@ -144,7 +144,27 @@ elem[17].children[4].children[2].onclick
 elem[18].children[4].children[2].onclick 
   = function(){c1(elem[18]);};
 
-// create an "add1" function
+// create a sub 1 function
+function sub1 (elem) {
+  if(elem.children[2].innerHTML == "1"||elem.children[2].innerHTML == "-") 
+    elem.children[2].innerHTML = "-";
+  else {
+    let currentScore = elem.children[2].innerHTML;
+    currentScore = Number.parseInt(currentScore);
+    elem.children[2].innerHTML = currentScore - 1;
+  }
+  if(elem.children[2].innerHTML == "-")
+    elem.children[3].innerHTML = "-";
+  else {
+    let currentScore = elem.children[2].innerHTML;
+    let par = elem.children[1].innerHTML;
+    currentScore = Number.parseInt(currentScore);
+    par = Number.parseInt(par);
+    elem.children[3].innerHTML = currentScore - par;
+  }
+}
+
+// create an add 1 function
 function add1 (elem) {
   if(elem.children[2].innerHTML == "-") 
     elem.children[2].innerHTML = "1";
@@ -164,25 +184,6 @@ function add1 (elem) {
   }
 }
 
-// create a "sub1" function
-function sub1 (elem) {
-  if(elem.children[2].innerHTML == "1"||elem.children[2].innerHTML == "-") 
-    elem.children[2].innerHTML = "-";
-  else {
-    let currentScore = elem.children[2].innerHTML;
-    currentScore = Number.parseInt(currentScore);
-    elem.children[2].innerHTML = currentScore - 1;
-  }
-  if(elem.children[2].innerHTML == "-")
-    elem.children[3].innerHTML = "-";
-  else {
-    let currentScore = elem.children[2].innerHTML;
-    let par = elem.children[1].innerHTML;
-    currentScore = Number.parseInt(currentScore);
-    par = Number.parseInt(par);
-    elem.children[3].innerHTML = currentScore - par;
-  }
-}
 
 function c1 (elem) {
   elem.children[2].innerHTML = "-";
