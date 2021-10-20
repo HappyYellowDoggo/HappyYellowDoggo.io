@@ -1,3 +1,6 @@
+//author: Abigail Tomiko
+//Assignment 3 for CIS 255
+
 let elem = [];
 // assign the entire table row for hole 1 to a variable, elem
 elem[1] = document.getElementById("1");
