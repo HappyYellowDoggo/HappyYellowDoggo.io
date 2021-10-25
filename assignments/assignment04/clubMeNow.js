@@ -91,7 +91,9 @@ function displayClubDistanceEntryForm(c) {
 
 // replace the current "clubs" array with the previous one
 function undoLastShot() {
-        // your code here !
+       let undo = localStorage.getItem("clubsUndo");
+	localStorage.setItem("clubs", undo);
+	window.location.href = "clubDistanceList.html";
 }
 
 // create a new (default) "clubs" array
@@ -127,7 +129,7 @@ function resetAllClubDistances() {
 
 // navigate to "About" screen
 function displayAbout() {
-	// your code here
+	window.location.href = "about.html";
 	// window.location.href = "clubAbout.html";
 }
 
