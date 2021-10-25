@@ -91,7 +91,8 @@ function displayClubDistanceEntryForm(c) {
 
 // replace the current "clubs" array with the previous one
 function undoLastShot() {
-       let undo = localStorage.getItem("clubsUndo");
+        // your code here !
+	let undo = localStorage.getItem("clubsUndo");
 	localStorage.setItem("clubs", undo);
 	window.location.href = "clubDistanceList.html";
 }
@@ -130,12 +131,17 @@ function resetAllClubDistances() {
 // navigate to "About" screen
 function displayAbout() {
 	window.location.href = "about.html";
+	// your code here
 	// window.location.href = "clubAbout.html";
 }
 
 // navigate to "Penalty Info" screen
 function displayPenaltyInfo() {
 	window.location.href = "clubPenaltyInfo.html";
+}
+
+function goBack() {
+	window.location.href = "clubDistanceList.html";
 }
 
 // ----- Functions (clubDistanceEntry.html) -----
