@@ -3,10 +3,10 @@ let person = {
   firstName: "Jane",
   lastName: "Doe",
   age: 45,
-  streetAddress: "123 Road Street",
-  city: "Townland",
+  streetAddress: "123 Happy Street",
+  city: "Smiles",
   state: "Michigan",
-  zipCode: "12345",
+  zipCode: "12321",
   fullName: function () { return this.firstName + " " + person.lastName },
   fullAddress: function () { return this.streetAddress + ", " + this.city + ", " + this.state + ", " + this.zipCode }
 }
