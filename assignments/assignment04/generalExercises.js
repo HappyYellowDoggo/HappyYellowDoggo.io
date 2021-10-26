@@ -3,16 +3,25 @@ let person = {
   firstName: "Jane",
   lastName: "Doe",
   age: 45,
-  fullName: function() {return this.firstName  + " " + person.lastName}
+  streetAddress: "123 Happy St.",
+  city: "Happiness",
+  state: "Smiles",
+  zipCode: "123456",
+  fullName: function() {return this.firstName  + " " + person.lastName},
+  
+  fullAddress: function() {return this.streetAddress + ", " + person.city + ", " + person.state + ", " + person.zipCode},
+
 }
+  
 document.getElementById("1A").innerHTML = person.fullName();
+document.getElementById("1B").innerHTML = person.fullAddress();
 
 // Instructions
 // modify person object, above, as follows
 // add properties, streetAddress, city, state, zipCode
 // add method, fullAddress(), which prints full address on a single line.
 // Display output of fullAddress() in <div id="1B">
-person.streetAddress = "123 Main Street";
+
 
 // ==================
 
@@ -31,6 +40,17 @@ appendTableRow3(table2a,"7","8","9");
 // create a 5-row by 5-column table showing the numbers, 1 through 25
 // put borders around the cells, too, not just around the edge of the table
 // Display output in <div id="2B">
+
+let div2b = document.getElementById("2B");
+let table2b = createTable("table2b");
+div2b.appendChild(table2b);
+table2b.setAttribute("style", "border:1px solid black;")
+table2b.setAttribute("width", "100%")
+appendTableRow5(table2b,"1","2","3","4","5");
+appendTableRow5(table2b,"6","7","8","9","10");
+appendTableRow5(table2b,"11","12","13","14","15");
+appendTableRow5(table2b,"16","17","18","19","20");
+appendTableRow5(table2b,"21","22","23","24","25");
 
 // ==================
 
