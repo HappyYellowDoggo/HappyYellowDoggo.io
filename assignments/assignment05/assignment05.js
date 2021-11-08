@@ -78,6 +78,7 @@ function loadContent() {
       
       covidJson = this.responseText;
       covidJsObj = JSON.parse(covidJson);
+	    console.log(covidJsObj);
       newConfirmedOver1000 = [];
       
 	    for (let c of covidJsObj.Countries) {
@@ -85,20 +86,32 @@ function loadContent() {
           newConfirmedOver1000.push({ 
             "Slug": c.Slug, 
             "NewConfirmed": c.NewConfirmed, 
-            "NewDeaths": c.NewDeaths
+            "NewDeaths": c.NewDeaths,
+		  "TotalConfirmedPer100000": Math.ound((c.TotalConfirmed/populations[c.slug])*100000, 2),
           });
         }
       }
+	    
       newConfirmedOver1000 = _.orderBy(newConfirmedOver1000, "NewDeaths", "desc");
 
       chartData.data.datasets[0].backgroundColor 
         = "rgba(100,100,100,0.4)"; // gray
       chartData.data.datasets[1].backgroundColor 
-        = "rgba(255,0,0,0.4)"; // red
+        = "rgba(169, 109, 173, 1)"; // Ce Soir
+	    
+//add in data set [2] background color
+	chartData.data.datasets[2].backgroundcolor
+	    = "rgba(0, 181, 204, 1)"; //iris blue
+	    
       chartData.data.datasets[0].label  
         = 'new cases';
       chartData.data.datasets[1].label  
         = 'new deaths';
+	    
+//add in data set [2] label 
+	chartData.data.datasets[2].label 
+	    = 'total cases per 100,000';
+	   
       chartData.data.labels  
         = newConfirmedOver1000.map( (x) => x.Slug );
       chartData.data.datasets[0].data  
@@ -107,8 +120,14 @@ function loadContent() {
       chartData.data.datasets[1].data  
         = newConfirmedOver1000.map( 
           (x) => x.NewDeaths );
+	    
+//add in data set [2] map
+	charData.data.datasets[2].data
+	    = newConfirmedOver1000.map(
+		(x) => x.TotalConfirmedPer100000 );
+	    
       chartData.options.title.text 
-        = "Covid 19 Hotspots" ;
+        = "Covid 19 Hotspots as of" + dayjs().format ("MMMM DD, YYYY") ;
       myChart = new Chart(ctx, chartData); 
 
     } // end if
@@ -226,16 +245,32 @@ var populations = {
 
 // step2 
 // new array 
-// loop through all covidJsObj.Countries[i] 
-// push all info i need
-/*
+
 var newArray = [] 
+function makeNewArray(){
+
+// loop through all covidJsObj.Countries[i] 
+
+	
 for (let i=0; i<covidJsObj.Countries.length; i++) {
+	if(object.keys(populations).includes(covidJsObj.Countries[i].Slug) && covidJsObj.Countries[i].TotalDeaths >= 500000{
+	   
+// push all info i need + add in totalDeths, populatioin and total confirmed per 100000
   newArray.push({
     "Slug": "\"" + covidJsObj.Countries[i].Slug + "\"",
-    "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed
+    "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed,
+    "TotalDeaths": covidJsObj.Countries[i].TotalDeaths,
+    "Population": populations[covidJsObj.Countries[i].Slug],
+    "TotalConfirmedPer100000": Math.round(100000 * covidJsObj.Countries[i].TotalDeaths / populations[covidJsObj.Countries[i].Slug])
     // continue here...
   })
   
+//new array
+	newArray = _.orderBy(newArray, "TotalConfirmedPer100000", "desc");
+	
 }
-*/
+
+
+
+
+
