@@ -127,7 +127,7 @@ function loadContent() {
 		(x) => x.TotalConfirmedPer100000 );
 	    
       chartData.options.title.text 
-        = "Covid 19 Hotspots as of" + dayjs().format ("MMMM DD, YYYY") ;
+        = "Covid 19 Hotspots as of" + dayjs().format ("MMMM") + " " + day.js().format("DD") + ", " + dayjs().format("YYYY");
       myChart = new Chart(ctx, chartData); 
 
     } // end if
@@ -262,7 +262,8 @@ for (let i=0; i<covidJsObj.Countries.length; i++) {
     "TotalDeaths": covidJsObj.Countries[i].TotalDeaths,
     "Population": populations[covidJsObj.Countries[i].Slug],
     "TotalConfirmedPer100000": Math.round(100000 * covidJsObj.Countries[i].TotalDeaths / populations[covidJsObj.Countries[i].Slug])
-    // continue here...
+ 
+// continue here...
   })
   
 //new array
