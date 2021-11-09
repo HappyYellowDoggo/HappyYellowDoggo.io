@@ -78,7 +78,7 @@ function loadContent() {
       
       covidJson = this.responseText;
       covidJsObj = JSON.parse(covidJson);
-	    console.log(covidJsObj);
+      console.log(covidJsObj);
       newConfirmedOver1000 = [];
       
 	    for (let c of covidJsObj.Countries) {
@@ -87,7 +87,7 @@ function loadContent() {
             "Slug": c.Slug, 
             "NewConfirmed": c.NewConfirmed, 
             "NewDeaths": c.NewDeaths,
-		  "TotalConfirmedPer100000": Math.ound((c.TotalConfirmed/populations[c.slug])*100000, 2),
+            "TotalConfirmedPer100000": Math.round((c.TotalConfirmed/populations[c.Slug])*100000, 2),
           });
         }
       }
