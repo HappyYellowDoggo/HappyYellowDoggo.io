@@ -101,14 +101,23 @@ function loadContent() {
         = "rgba(100,100,100,0.4)"; // gray
       chartData.data.datasets[1].backgroundColor  
         = "rgba(255,0,0,0.4)"; // red
-      chartData.data.datasets[2].backgroundColor 
-        = "rgba(0,255,0,0.4)"; // green 
+	    
+//add in data set [2] background color
+	chartData.data.datasets[2].backgroundcolor
+	    = "rgba(0, 181, 204, 1)"; //iris blue
+
       chartData.data.datasets[0].label  
         = 'new cases';
       chartData.data.datasets[1].label  
         = 'new deaths';
-      chartData.data.datasets[2].label  
-        = 'total cases per 100000';
+	    
+//add in data set [2] label 
+	chartData.data.datasets[2].label 
+	    = 'total cases per 100,000';
+	   
+      chartData.data.labels  
+        = newConfirmedOver1000.map( (x) => x.Slug );
+
       chartData.data.labels  
         = newConfirmedOver1000.map( (x) => x.Slug );
       chartData.data.datasets[0].data  
@@ -117,9 +126,12 @@ function loadContent() {
       chartData.data.datasets[1].data  
         = newConfirmedOver1000.map( 
           (x) => x.NewDeaths );
-      chartData.data.datasets[2].data  
-        = newConfirmedOver1000.map( 
-          (x) => x.TotalConfirmedPer100000 );
+
+//add in data set [2] map
+	charData.data.datasets[2].data
+	    = newConfirmedOver1000.map(
+		(x) => x.TotalConfirmedPer100000 );
+
       chartData.options.title.text 
         = "Covid 19 Hotspots on "+dayjs().format("MMMM")+" "+dayjs().format("D")+", "+dayjs().format("YYYY");
       myChart = new Chart(ctx, chartData); 
@@ -240,13 +252,16 @@ var populations = {
 // step2 
 // new array 
 // loop through all covidJsObj.Countries[i] 
-// push all info i need
-var newArray = [] 
-for (let i=0; i<covidJsObj.Countries.length; i++) {
+// push all info i need + add in totalDeths, populatioin and total confirmed per 100000
   newArray.push({
     "Slug": "\"" + covidJsObj.Countries[i].Slug + "\"",
-    "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed
-    // continue here...
+    "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed,
+    "TotalDeaths": covidJsObj.Countries[i].TotalDeaths,
+    "Population": populations[covidJsObj.Countries[i].Slug],
+    "TotalConfirmedPer100000": Math.round(100000 * covidJsObj.Countries[i].TotalDeaths / populations[covidJsObj.Countries[i].Slug])
+ 
+// continue here...
+
   })
   
 }
