@@ -47,10 +47,12 @@ var chartData = {
           // logarithmic scale ignores maxTicksLimit
           maxTicksLimit: 11,
           callback: function(label, index, labels) {
-            return (   label/1000 > 9 
-                    || label/1000 == 1 
-                    || label/1000 == 0.1 
-                    || label/1000 == 0.01) 
+            return (   label/1000 = 10000 
+                    || label/1000 == 1000 
+                    || label/1000 == 100
+                    || label/1000 == 10 
+		    || label/1000 == 1
+		    || label/1000 == 0.1 )
               ? label/1000+'k' :  "";
           }
         },
@@ -73,6 +75,22 @@ var chartData = {
 
 // code below modified from: 
 // https://www.w3schools.com/js/js_ajax_intro.asp
+
+//AJAX call
+xhttp = new XMLHttpRequest();
+current = dayjs();
+
+//24 hours
+ if(localStorage.getItem('covidData') == null || dayjs(JSON.parse(localStorage.getItem('lastRequest'))) <= current){
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4  && this.status == 200) {
+      localStorage.setItem('covidData', this.responseText);
+    }
+
+ }
+    localStorage.setItem("lastRequest", JSON.stringify(dayjs().add(24,"h")))
+  }; 
+
 
 function loadContent() {
   xhttp = new XMLHttpRequest();
@@ -253,15 +271,20 @@ var populations = {
 // new array 
 // loop through all covidJsObj.Countries[i] 
 // push all info i need + add in totalDeths, populatioin and total confirmed per 100000
+
+
+for (let i=0; i < covidJsObj.Countries.length; i++) {
+  if(Object.keys(populations).includes(covidJsObj.Countries[i].Slug) && covidJsObj.Countries[i].TotalDeaths >= 50000){
   newArray.push({
     "Slug": "\"" + covidJsObj.Countries[i].Slug + "\"",
     "TotalConfirmed": covidJsObj.Countries[i].TotalConfirmed,
     "TotalDeaths": covidJsObj.Countries[i].TotalDeaths,
     "Population": populations[covidJsObj.Countries[i].Slug],
     "TotalConfirmedPer100000": Math.round(100000 * covidJsObj.Countries[i].TotalDeaths / populations[covidJsObj.Countries[i].Slug])
- 
-// continue here...
-
+    
   })
+  }
+}
   
+   newArray = _.orderBy(newArray, "TotalConfirmedPer100000", "desc");
 }
