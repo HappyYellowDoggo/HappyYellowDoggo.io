@@ -63,24 +63,24 @@
  // $("input[type=text]").focus(function() {
  //   $(this).select();
 //    $(this).css("background-color", "yellow");
-  }); 
+ // }); 
  // $("input[type=text]").blur(function() {
   //  $(this).css("background-color", "white");
-  });
+ // });
   
   // set focus to first year: messes up codepen
   // $("#loan_year01").focus();
   // update loans array when exiting "year" input field (jquery)
  // $("#loan_year01").blur( function() {
  //   updateLoansArray();
-  });
-  
-} // end: function loadDoc()
+ // });
+ // 
+//} // end: function loadDoc()
 
 
 //function toComma(value) {
    // return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+//}
 
 //function updateLoansArray() {
   // update the loans array
@@ -89,8 +89,8 @@
  // for(var i=1; i<5; i++) {
   //  loans[i].loan_year = loans[0].loan_year + i;
   //  $("#loan_year0"+ (i+1) ).val(loans[i].loan_year); // jquery
-  }
-}
+//  }
+//}
 
 //implementd code from https://regie09.github.io/regie092/assignment06.html
 // ===== GLOBAL VARIABLES =====
@@ -108,29 +108,29 @@ let loans = [
   let int = 0;
   let payments;
   
-  // ===== FUNCTIONS =====
+  // FUNCTIONS
   
-  // ----- Plain JavaScript Functions -----
+  // Plain JavaScript Functions
   
-  // -------------------------------------------------------
+  // -----------------------
   //adds commas in thousands value
   function toComma(value) {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   
-  // -------------------------------------------------------
+  // -------------------------
   //adds dollar sign at the front of toComma
   let toMoney = (value) => {
     return `\$${toComma(value.toFixed(2))}`;
   };
   
-  // -------------------------------------------------------
+  // ---------------------
   //it saves it in local storage of that device
   let saveForm = () => {
     localStorage.setItem(`as06`, JSON.stringify(loans));
   };
   
-  // -------------------------------------------------------
+  // -----------------------------
   //gets inside the localstorage and updates the form in that localstorage
   let loadForm = () => {
     if (localStorage.getItem(`as06`) != null) {
@@ -141,9 +141,9 @@ let loans = [
     }
   };
   
-  // ----- JQUERY Functions -----
+  // JQUERY Functions 
   
-  // -------------------------------------------------------
+  // -------------------------
   // display the entry form
   function loadDoc() {
     // pre-fill defaults for first loan year
@@ -193,7 +193,8 @@ let loans = [
     // $("#loan_year01").focus();
   } // end: function loadDoc()
   
-  // -------------------------------------------------------
+  // -------------------------
+
   function updateLoansArray() {
     //takes user input and change the data in loans array using regex
   
@@ -240,7 +241,8 @@ let loans = [
     } // end: if
   } // end: function updateLoansArray()
   
-  // -------------------------------------------------------
+  // -----------------------
+
   //display the data in the entry form
   //filling out the form and replacing the field witth correct computations
   let updateForm = () => {
@@ -260,7 +262,7 @@ let loans = [
     $(`#loan_int_accrued`).text(toMoney(int)); //show the interest
   }; // end: function updateForm()
   
-  // ----- ANGULAR -----
+  // ANGULAR
   //creates variable app and assign value angular module
   var app = angular.module("myApp", []);
   
@@ -301,5 +303,3 @@ let loans = [
       };
     };
   });
-
-
